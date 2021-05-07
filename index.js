@@ -33,13 +33,28 @@ app.use(cors())
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(router);
-app.use(cors())
+
+
+app.get('/routes/:id', function (req, res, next) {
+    res.json({ msg: 'This is CORS-enabled for all origins!' })
+})
+
+app.get('/payments/:id', function (req, res, next) {
+    res.json({ msg: 'This is CORS-enabled for all origins!' })
+})
+
+app.get('/bills/:id', function (req, res, next) {
+    res.json({ msg: 'This is CORS-enabled for all origins!' })
+})
+
+
 
 // telling our app the port to listen to for requests
 // key for the port to work
-app.listen(port, ()=> {
+app.listen(port, () => {
     console.log(`Our Book Club API is now available on port ${port}`)
 })
+
 
 // these app.x with requests are the routes our application will use
 // we will also create a file to store our environments, to ensure our passwords

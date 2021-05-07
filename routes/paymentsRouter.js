@@ -4,13 +4,13 @@ import { capturePayment, viewPaymentsByPremise, viewAllPayments } from "../contr
 const paymentsRouter = express.Router();
 
 // capture a bill
-billsRouter.put("/", capturePayment);
+paymentsRouter.put("/:id", capturePayment);
 
 // view specific payment based on its premise
-billsRouter.get("/:id", viewPaymentsByPremise);
+paymentsRouter.get("/:id", viewPaymentsByPremise);
 
 // view all bills
-billsRouter.get("/", viewAllPayments);
+paymentsRouter.get("/", viewAllPayments);
 
 export default paymentsRouter;
 
