@@ -1,5 +1,5 @@
-{
-  "name": "wateco_api",
+
+  "name": "waterco_api",
   "version": "1.0.0",
   "description": "API for a water company",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "author": "Adio Adedeji",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
