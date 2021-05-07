@@ -1,5 +1,5 @@
 import express from "express";
-import { Addmember,ViewAllmember,ViewMember,UpdateMember,deletemember } from "../contollers/membersController.js";
+import { Addmember,ViewAllmember,ViewMember,UpdateMember,deletemember } from "../controllers/membersController.js";
 const membersRouter=express.Router();
 
 // View A member

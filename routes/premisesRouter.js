@@ -1,5 +1,5 @@
 import express from "express";
-import { Addpremise, deletepremise, Updatepremise, ViewAllpremises, ViewMemberpremise, Viewpremise } from "../contollers/premisesController.js";
+import { Addpremise, deletepremise, Updatepremise, ViewAllpremises, ViewMemberpremise, Viewpremise } from "../controllers/premisesController.js";
 const premisesRouter=express.Router();
 
 // View All member

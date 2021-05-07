@@ -1,6 +1,6 @@
 import express from "express";
-import { AddUser,ViewAllUsers,ViewUser,signIn } from "../contollers/usersController.js";
-import { authenticate } from "../middleware/auth.js";
+import { AddUser,ViewAllUsers,ViewUser,signIn } from "../controllers/usersController.js";
+import { authenticate } from "../middlewares/auth.js";
 const UsersRouter=express.Router();
 
 // Add A user-Sign up

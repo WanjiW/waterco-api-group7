@@ -14,11 +14,11 @@ app.get("/", (req, res) => {
     res.send("Hello World")  // response sent to browser
 })
 
-app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(router);
+app.use(cors());
 
 
 app.get('/routes/:id', function (req, res, next) {
