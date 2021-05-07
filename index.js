@@ -33,6 +33,7 @@ app.use(cors())
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(router);
+app.use(cors())
 
 // telling our app the port to listen to for requests
 // key for the port to work

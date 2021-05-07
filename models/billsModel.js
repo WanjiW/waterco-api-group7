@@ -4,7 +4,8 @@ import { sequelize } from "../db/dbConnection.js";
 const Bill = sequelize.define('bill', {
 
     PaymentID: {
-        type: Sequelize.STRING(10),
+        autoIncrement: true,
+        type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true
     },

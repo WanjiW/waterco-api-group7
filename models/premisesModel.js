@@ -4,7 +4,8 @@ import { sequelize } from "../db/dbConnection.js";
 const Premise = sequelize.define('premise', {
 
     PremiseID: {
-        type: Sequelize.STRING(10),
+        autoIncrement: true,
+        type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true
     },
