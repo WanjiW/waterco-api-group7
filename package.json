@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "dev2": "app.js"
+    "start": "node index.js"
   },
   "author": "Adio Adedeji",
   "license": "ISC",
