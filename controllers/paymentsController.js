@@ -77,3 +77,28 @@ export async function viewAllPayments(req, res) {
     }
 }
 
+export async function updatePayment(req,res){
+    try{
+        let updatepayment = await Payment.update(req.body, {where: {PaymentID: req.params.id}})
+        if (updatepayment){
+            res.json({ 
+                success: true,
+                message: "Payment has been updated",
+                data: updatepayment
+            })
+        } else{
+            res.json({
+                success: true,
+                message: "Payment not updated"
+            })
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: "Something is wrong" 
+        })
+    }
+}
+  
+

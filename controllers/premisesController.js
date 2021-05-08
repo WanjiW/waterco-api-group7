@@ -1,96 +1,100 @@
 import Premises from "../models/premises.model.js";
-import  Customers from "../models/members.model.js"
+import Customers from "../models/members.model.js";
 
-export async function Addpremise(req,res){
-    try{
-        let Premise=await Premises.create(req.body);
-        if (Premise){
+export async function Addpremise(req, res) {
+    try {
+        let Premise = await Premises.create(req.body);
+        if (Premise) {
             res.status(200).json({
-                message:"Premise Created successfully",
-                success:true,
-                data:Premise
+                message: "Premise Created successfully",
+                success: true,
+                data: Premise
             })
-        }else{
+        } else {
             res.status(200).json({
-                message:" Premise could not be created Successfully",
-                Sucess:true
+                message: " Premise could not be created Successfully",
+                Sucess: true
             })
         }
-    }catch(err){
+    } catch (err) {
         console.log(err)
         res.status(500).json({
-            success:false,
-            message:"OOPS!Something is wroong"
+            success: false,
+            message: "OOPS!Something is wroong"
         })
-        
-    }
-    
+
     }
 
-
-export async function Viewpremise(req,res){
-    try{
-        let  premise= await Premises.findAll({where:{PremiseId:req.params.id}})
-        if(premise){
-            res.status(200).json({
-                message:"Premise Viewed",
-                success:true,
-                data:premise
-            })}else{
-                res.status(200).json({
-                    message:"Premise cannot be  Viewed",
-                    success:true
-                    
-            })
-    }}catch(err){
-        if(err){
-            res.status(500).json({
-                success:false,
-                message:"OOPs.....Bad energy"
-            })
-        }
-    }
-     
 }
 
 
-    
-export async function ViewAllpremises(req,res){
-    try{
-        let  premise= await Premises.findAll()
-        if(premise){
+export async function Viewpremise(req, res) {
+    try {
+        let premise = await Premises.findAll({ where: { PremiseID: req.params.id } })
+        if (premise) {
             res.status(200).json({
-                message:"Premise Viewed",
-                success:true,
-                data:premise
-            })}else{
-                res.status(200).json({
-                    message:"Premise cannot be  Viewed",
-                    success:true
-                    
+                message: "Premise Viewed",
+                success: true,
+                data: premise
             })
-    }}catch(err){
-        if(err){
+        } else {
+            res.status(200).json({
+                message: "Premise cannot be  Viewed",
+                success: true
+
+            })
+        }
+    } catch (err) {
+        if (err) {
             res.status(500).json({
-                success:false,
-                message:"OOPs.....Bad energy"
+                success: false,
+                message: "OOPs.....Bad energy"
             })
         }
     }
-     
-}
-     
 
-export async function Updatepremise(req,res){
-    try{
-        let updatemember = await Premises.update(req.body, {where: {PremiseId: req.params.id}})
-        if (updatemember){
-            res.json({ 
+}
+
+
+
+export async function ViewAllpremises(req, res) {
+    try {
+        let premise = await Premises.findAll()
+        if (premise) {
+            res.status(200).json({
+                message: "Premise Viewed",
+                success: true,
+                data: premise
+            })
+        } else {
+            res.status(200).json({
+                message: "Premise cannot be  Viewed",
+                success: true
+
+            })
+        }
+    } catch (err) {
+        if (err) {
+            res.status(500).json({
+                success: false,
+                message: "OOPs.....Bad energy"
+            })
+        }
+    }
+
+}
+
+
+export async function Updatepremise(req, res) {
+    try {
+        let updatemember = await Premises.update(req.body, { where: { PremiseID: req.params.id } })
+        if (updatemember) {
+            res.json({
                 success: true,
                 message: "Feature has been changed",
                 data: updatemember
             })
-        } else{
+        } else {
             res.json({
                 success: true,
                 message: "Member was not deleted"
@@ -100,22 +104,22 @@ export async function Updatepremise(req,res){
         console.log(err);
         res.status(500).json({
             success: false,
-            message: "Something is wrong" 
+            message: "Something is wrong"
         })
     }
 }
- 
 
-export async function deletepremise(req,res){
-    try{
-        let themember = await Premises.destroy({where: {PremiseId: req.params.id}});
-        if (themember){
+
+export async function deletepremise(req, res) {
+    try {
+        let themember = await Premises.destroy({ where: { PremiseID: req.params.id } });
+        if (themember) {
             res.json({
                 success: true,
                 message: "Member has been deleted",
                 data: themember
             })
-        } else{
+        } else {
             res.json({
                 success: true,
                 message: "Member was not deleted"
@@ -125,34 +129,62 @@ export async function deletepremise(req,res){
         console.log(err);
         res.status(500).json({
             success: false,
-            message: "Something is wrong" 
+            message: "Something is wrong"
         })
     }
 }
 
 //View member Premises
-export async  function ViewMemberpremise(req,res){
-    try{
-        let Memberpremise= await Customers.findAll({where:{PremiseId:req.params.id}})
-        if (Memberpremise){
+export async function ViewMemberpremise(req, res) {
+    try {
+        let Memberpremise = await Customers.findAll({ where: { PremiseID: req.params.id } })
+        if (Memberpremise) {
             res.status(200).json({
-                success:true,
-                message:"premise viewed Successfully"
+                success: true,
+                message: "premise viewed Successfully",
+                data: Memberpremise
             })
-            }else{
-                res.status(200).json({
-                    success:true,
-                    message:"premise cannot be viewed by this time"
-                })
-            }
-
+        } else {
+            res.status(200).json({
+                success: true,
+                message: "premise cannot be viewed by this time"
+            })
         }
-    catch(err){
-        if (err){
+
+    }
+    catch (err) {
+        if (err) {
             res.status(400).json({
-                success:false,
-                message:"Oops.....something is wrong"
+                success: false,
+                message: "Oops.....something is wrong"
             })
         }
     }
-}     
+}
+
+export async function viewPremisesByRoute(req, res) {
+    try {
+        let premiseRoute = await Premises.findAll({ where: { RouteNumber: req.params.id } })
+        if (premiseRoute) {
+            res.status(200).json({
+                success: true,
+                message: "the premise route can be viewed successfully",
+                data: premiseRoute
+            })
+        } else {
+            res.status(200).json({
+                success: true,
+                message: "the premise route cannot be viewed"
+            })
+        }
+
+    }
+    catch (err) {
+        if (err) {
+            res.status(400).json({
+                success: false,
+                message: "Oops.....something is wrong"
+            })
+        }
+    }
+}

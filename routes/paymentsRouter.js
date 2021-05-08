@@ -1,5 +1,5 @@
 import express from "express";
-import { capturePayment, viewPaymentsByPremise, viewAllPayments } from "../controllers/paymentsController.js";
+import { capturePayment, viewPaymentsByPremise, viewAllPayments, updatePayment } from "../controllers/paymentsController.js";
 
 const paymentsRouter = express.Router();
 
@@ -11,6 +11,9 @@ paymentsRouter.get("/:id", viewPaymentsByPremise);
 
 // view all bills
 paymentsRouter.get("/", viewAllPayments);
+
+//update payment
+paymentsRouter.put("/:id", updatePayment)
 
 export default paymentsRouter;
 
